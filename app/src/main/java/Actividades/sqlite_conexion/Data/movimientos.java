@@ -5,23 +5,23 @@ import android.database.Cursor;
 import Actividades.sqlite_conexion.Data.movimientosContract.MovimientosEntry;
 public class movimientos {
 
-    private String id_usuario;
-    private String id_producto;
-    private String accion;
-    private String cantidad;
+    private int id_usuario;
+    private int id_producto;
+    private int accion;
+    private int cantidad;
 
-    public movimientos(String id, String nombre_prod, String descripcion, String cantidad_prod) {
+    public movimientos(int id, int id_prod, int accion, int cantidad_prod) {
         this.id_usuario = id;
-        this.id_producto = nombre_prod;
-        this.accion = descripcion;
+        this.id_producto = id_prod;
+        this.accion = accion;
         this.cantidad = cantidad_prod;
     }
 
     public movimientos(Cursor cursor){
-        id_usuario = cursor.getInt(cursor.getColumnIndex(movimientosContract.MovimientosEntry.ID_PROD));
-        id_producto =cursor.getInt(cursor.getColumnIndex(movimientosContract.MovimientosEntry.ID_USER));
-        accion = cursor.getInt(cursor.getColumnIndex(movimientosContract.MovimientosEntry.ACTION));
-        cantidad =cursor.getInt(cursor.getColumnIndex(movimientosContract.MovimientosEntry.QUANTITY));
+        id_usuario = cursor.getInt(cursor.getColumnIndex(MovimientosEntry.ID_PROD));
+        id_producto =cursor.getInt(cursor.getColumnIndex(MovimientosEntry.ID_USER));
+        accion = cursor.getInt(cursor.getColumnIndex(MovimientosEntry.ACTION));
+        cantidad =cursor.getInt(cursor.getColumnIndex(MovimientosEntry.QUANTITY));
     }
 
     public ContentValues toContentValues() {
@@ -33,19 +33,19 @@ public class movimientos {
         return Values;
     }
 
-    public String getId_usuario() {
+    public int getId_usuario() {
         return id_usuario;
     }
 
-    public String getId_producto() {
+    public int getId_producto() {
         return id_producto;
     }
 
-    public String getAccion() {
+    public int getAccion() {
         return accion;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 

@@ -2,16 +2,16 @@ package Actividades.sqlite_conexion.Data;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import Actividades.sqlite_conexion.Data.movimientoContract.ProductosEntry;
+import Actividades.sqlite_conexion.Data.productosContract.ProductosEntry;
 public class productos {
-    private String id;
+    private int id;
     private String nombre_prod;
     private String descripcion;
-    private String stock;
-    private String valor;
-    private String salidas;
+    private int stock;
+    private float valor;
+    private int salidas;
 
-    public productos(String id, String nombre_prod, String descripcion, String stock, String valor, String salidas) {
+    public productos(int id, String nombre_prod, String descripcion, int stock, float valor, int salidas) {
         this.id = id;
         this.nombre_prod = nombre_prod;
         this.descripcion = descripcion;
@@ -40,7 +40,7 @@ public class productos {
         return Values;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -52,15 +52,15 @@ public class productos {
         return descripcion;
     }
 
-    public String getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public String getValor() {
+    public float getValor() {
         return valor;
     }
 
-    public String getSalidas() {
+    public int getSalidas() {
         return salidas;
     }
 }

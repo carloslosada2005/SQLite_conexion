@@ -2,7 +2,7 @@ package Actividades.sqlite_conexion.Data;
 
 import android.provider.BaseColumns;
 
-public class movimientoContract {
+public class productosContract {
 
 public static abstract class ProductosEntry implements BaseColumns {
     public static final String TABLE_NAME ="productos";
