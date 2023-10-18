@@ -6,4 +6,9 @@
     <string name="stock">stock</string>
     <string name="valor">valor</string>
     <string name="editar">editar</string>
+    <string name="nombre_prod" >nombre producto</string>
+    <string name="stock_prod">stock producto</string>
+    <string name="valor_prod">valor producto</string>
+    <string name="editar_agregar">editar o agregar</string>
+    <string name="agregar"> agregar</string>
 </resources>

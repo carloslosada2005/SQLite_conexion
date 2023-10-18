@@ -23,9 +23,9 @@ public class inventarioDBHelper  extends SQLiteOpenHelper {
                 ProductosEntry.ID + " INTEGER PRIMARY KEY," +
                 ProductosEntry.NAME+ " TEXT NOT NULL," +
                 ProductosEntry.DESCRIPTION+ " INTEGER NOT NULL," +
-                ProductosEntry.QUANTITY+ "INTEGER NOT NULL,"+
-                ProductosEntry.PRICE + "INTEGER NOT NULL,"+
-                ProductosEntry.OUT + "INTEGER NOT NULL)");
+                ProductosEntry.QUANTITY+ " INTEGER NOT NULL,"+
+                ProductosEntry.PRICE + " INTEGER NOT NULL,"+
+                ProductosEntry.OUT + " INTEGER NOT NULL)");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class inventarioDBHelper  extends SQLiteOpenHelper {
 
     }
 
-    public long saveUser(productos producto) {
+    public long saveProducto(productos producto) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         return sqLiteDatabase.insert(
                 ProductosEntry.TABLE_NAME,
@@ -65,6 +65,29 @@ public class inventarioDBHelper  extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor getProductoByName(String productoName) {
+        Cursor c = getReadableDatabase().query(
+                ProductosEntry.TABLE_NAME,
+                null,
+                ProductosEntry.NAME + " LIKE ?",
+                new String[]{productoName},
+                null,
+                null,
+                null);
+        return c;
+    }
+
+    public Cursor getProductoByStock(String productoName) {
+        Cursor c = getReadableDatabase().query(
+                ProductosEntry.TABLE_NAME,
+                null,
+                ProductosEntry.NAME + " LIKE ?",
+                new String[]{productoName},
+                null,
+                null,
+                null);
+        return c;
+    }
 
     public int deleteProducto(String productoId) {
         return getWritableDatabase().delete(
@@ -79,6 +102,15 @@ public class inventarioDBHelper  extends SQLiteOpenHelper {
                 productoModificar.toContentValues(),
                 ProductosEntry.ID + " LIKE ?",
                 new String[]{productoId}
+        );
+    }
+
+    public int updateProductoNAMESTOCKVALUE(productos productoModificar, String productoStock) {
+        return getWritableDatabase().update(
+                ProductosEntry.TABLE_NAME,
+                productoModificar.toContentValues(),
+                ProductosEntry.NAME + " LIKE ?",
+                new String[]{productoStock}
         );
     }
 }

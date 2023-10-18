@@ -40,6 +40,18 @@ public class productos {
         return Values;
     }
 
+    public void setNombre_prod(String nombre_prod) {
+        this.nombre_prod = nombre_prod;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
     public int getId() {
         return id;
     }
